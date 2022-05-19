@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Bizdagi Kitoblar ro'yhati! </h1> <br>
+    {% for i in book %}
+        <h2>{{i.nom }}, {{i.sahifa }}, {{i.sana}}</h2>
+    <button type="submit"><a href="/kitob/{{i.id}}/" style="Text-decoration:none">O'chirish</a></button>
+    <button><a href="/kitob/{{i.id}}/edit" style="text-decoration:none; color:green">Tahrirlash</a></button>
+    {% endfor %} <br>
+<form method="post" action="/books/">{% csrf_token %}
+    <input type="text" placeholder="nom" name="n">
+    <input type="text" placeholder="sahifa" name="s">
+    <input type="text" placeholder="janr" name="j">
+    <input type="date" placeholder="sana" name="d">
+    <button type="submit">Qo'shish</button>
+</form>
+</body>
+</html>

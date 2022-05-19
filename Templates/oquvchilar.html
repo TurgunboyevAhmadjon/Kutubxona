@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<h1>O'quvchilar ro'yhati: </h1> <br>
+
+
+    {% for i in students %}
+
+    {% if i|length > 4 %}
+    <ul>
+        <li>
+            {{ i }}
+        </li>
+        <a href="/oquvchi/{{i}}/"><button>O'chirish</button></a>
+    </ul>
+
+    {% endif %}
+    {% endfor %}
+</body>
+</html>

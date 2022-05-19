@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body align="center" bgcolor="green" >
+<h2 style="color:white">Muallifni tahrirlash</h2> <br><br>
+<form method="post" action="/mualliflar/{{mualliflar.id}}/edit/" style="color:white">{% csrf_token %}
+    <input type="text" value="{{mualliflar.ism}}" name="i">
+    <input type="number" value="{{mualliflar.yosh}}" name="y">
+    <input type="checkbox" value="{{mualliflar.tirik}}" name="t">
+    <input type="radio" value="{{mualliflar.jins}}" name="j">
+    <button type="submit" >Tahrirlash</button>
+</form>
+</body>
+</html>

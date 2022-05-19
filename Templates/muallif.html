@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body align="center" bgcolor="green" >
+<h1 style="color:white">Bizdagi Mualliflar ro'yhati! </h1> <br>
+{% for i in muallif %}
+        <h2 style="color:white">{{i.ism }}, {{i.yosh }}, {{i.tirik}}, {{i.jins}}</h2>
+        <button style="border-radius:10px"><a href="/muallif/{{i.id}}/" style="Text-decoration:none; color:red">Batafsil</a></button>
+        <button type="submit" style="border-radius:10px"><a href="/muallif/{{i.id}}/" style="Text-decoration:none">O'chirish</a></button>
+        <button style="border-radius:10px"><a href="/mualliflar/{{i.id}}/edit" style="text-decoration:none; color:green">Tahrirlash</a></button>
+    {% endfor %}
+
+<form method="post" action='/muallif/'>{% csrf_token %}
+    <input type="text" placeholder="Ismingiz" name="i" style="border-radius: 15px;"> <br>
+    <input type="text" placeholder="Yoshingiz" name="y" style="border-radius: 15px;"> <br>
+    <label style="color:white">Jinsingiz</label><br>
+    <input type="radio" name="j" ><h5 style="color:white">Erkak </h5><br>
+    <input type="radio" name="j"><h5 style="color:white">Ayol</h5> <br>
+    <button type="submit" style="border-radius:10px">Qo'shish</button>
+</form>
+</body>
+</html>

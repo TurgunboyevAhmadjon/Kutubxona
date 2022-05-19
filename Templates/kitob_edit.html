@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kitobni tahrirlash</title>
+</head>
+<body>
+<h2>Kitobni tahrirlash</h2><br><br>
+
+<form method="post" action="/kitob/{{kitob.id}}/edit/">{% csrf_token %}
+    <select name="m">
+        {% for i in mualliflar %}
+            <option value="{{i.id}}">{{i}}</option>
+        {% endfor %}
+    </select>
+    <input type="text" value="{{kitob.nom}}" name="n">
+    <input type="text" value="{{kitob.sahifa}}" name="s">
+    <input type="text" value="{{kitob.janr}}" name="j">
+    <input type="date" value="{{kitob.sana}}" name="d">
+    <button type="submit" >Tahrirlash</button>
+</form>
+</body>
+</html>

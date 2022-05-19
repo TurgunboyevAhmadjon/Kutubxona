@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Students</title>
+</head>
+<body align="center" bgcolor="red" >
+<h1>Bizdagi studentlar ro'yhati! </h1> <br>
+    {% for i in students %}
+        <h3>{{ i.ism }}, ({{i.guruh}}), ({{i.kitob_soni}})</h3>
+<br>
+ <button><a href="/studentlar/{{i.id}}/" style="Text-decoration:none; color:red">Batafsil</a></button>
+ <button type="submit"><a href="/student/{{i.id}}/" style="Text-decoration:none">O'chirish</a></button>
+ <button><a href="/student/{{i.id}}/edit" style="text-decoration:none; color:green">Tahrirlash</a></button>
+    {% endfor %}
+<br>
+
+
+<form method="post" action="/students/">{% csrf_token %}
+    <input type="text" placeholder="Ismingiz" name="i">
+    <input type="text" placeholder="Guruhingiz" name="g">
+    <input type="number" placeholder="Kitoblaringiz soni" name="k_s">
+    <button type="submit">Qo'shish</button>
+</form>
+</body>
+</html>
